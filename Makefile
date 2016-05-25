@@ -6,16 +6,17 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#*   Updated: 2016/05/03 16:32:32 by jmarsal          ###   ########.fr       *#
+#    Updated: 2016/05/25 16:31:58 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 INC_DIR = includes/
-SRC_DIR = ./srcs/
+SRC_DIR = srcs/
 SRC_FILES = main.c error.c block.c tetrimino.c resolve.c result.c \
 		resolve_tools2.c map.c resolve_tools.c coords.c patterns.c
-OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
+OBJ_PATH = ./obj
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 ILIBFT = -Ilibft
@@ -26,17 +27,26 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	@make -C libft
 	@$(CC) $(CFLAGS) -o $(NAME) $^ -I$(INC_DIR) $(LIBFT)
+	@echo "\n---------------------------------------------------------"
+	@echo "|\033[32;1m\t\t$(NAME) has been created !\t\t\033[0m|"
+	@echo "---------------------------------------------------------\n"
 
-%.o: $(SRC_DIR)%.c
+$(OBJ_PATH)/%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_PATH)
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ -c $< $(ILIBFT)
 clean:
 	@make clean -C libft
-	@rm -fv $(OBJ_FILES)
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	@rm -rf $(OBJ_PATH)
+	@echo "\n-------------------------------------------------"
+	@echo "|\t\033[31mall $(NAME) files.o are deleted\033[0m\t\t|"
+	@echo "-------------------------------------------------\n"
 
 fclean: clean
 	@make fclean -C libft
 	@rm -fv $(NAME)
+	@echo "\n-----------------------------------------"
+	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t\t|"
+	@echo "-----------------------------------------\n"
 
 re: fclean all
 
@@ -45,4 +55,3 @@ norme:
 	norminette $(INC_PATH)*.h
 
 .PHONY:  all, clean, fclean, re
-
