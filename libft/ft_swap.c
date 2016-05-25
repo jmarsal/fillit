@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 15:10:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/25 15:10:14 by jmarsal          ###   ########.fr       */
+/*   Created: 2015/12/01 19:03:46 by vquesnel          #+#    #+#             */
+/*   Updated: 2015/12/01 19:05:15 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	Ajoute l’élément new en tête de la liste.
-*/
-
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_swap(int *a, int *b)
 {
-	new->next = *alst;
-	*alst = new;
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

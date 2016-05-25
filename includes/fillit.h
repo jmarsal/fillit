@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lsudre <lsudre@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 15:39:34 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/01 01:28:14 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/25 15:22:47 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,18 @@ typedef struct			s_patterns
 
 typedef struct			s_block
 {
-	char				letter;
+	struct s_block		*next;
 	int					x;
 	int					y;
-	struct s_block		*next;
+	char				letter;
+
 }						t_block;
 
 typedef struct			s_tetrimino
 {
+	struct s_tetrimino	*next;
 	t_block				*blocks_list;
 	int					nb_blocks;
-	struct s_tetrimino	*next;
 }						t_tetrimino;
 
 typedef struct			s_pos
@@ -77,11 +78,11 @@ typedef struct			s_app
 	t_tetrimino			*tetri_list;
 	t_patterns			patterns;
 	t_result			*results;
-	char				buf[BUFFER_SIZE];
 	int					len;
 	int					count_tr;
 	int					max_width;
 	int					complete_map;
+	char				buf[BUFFER_SIZE];
 }						t_app;
 
 void					print_map(t_block **map, int max_width);

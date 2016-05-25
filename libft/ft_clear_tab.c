@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/25 15:10:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/25 15:10:14 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/03/08 23:18:21 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/03/08 23:19:40 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	Ajoute l’élément new en tête de la liste.
-*/
-
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_clear_tab(char **tab)
 {
-	new->next = *alst;
-	*alst = new;
+	int	i;
+
+	i = 0;
+	if (tab)
+	{
+		while (tab[i])
+		{
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
+	}
+	return (1);
 }

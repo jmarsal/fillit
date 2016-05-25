@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/09 15:47:42 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/25 12:10:44 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/05/24 23:00:03 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/05/24 23:32:25 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**	Alloue (avec malloc(3)) et retourne une chaine de caractère “fraiche”
-**	terminée par un ’\0’. Chaque caractère de la chaine est initialisé à
-**	’\0’. Si l’allocation echoue, la fonction renvoie NULL.
+**	Ajoute l'element new en fin de liste.
 */
 
-char	*ft_strnew(size_t size)
+void	ft_lstadd_end(t_list **alst, t_list *new)
 {
-	char *str;
+	t_list	*cur;
 
-	str = (char *)ft_memalloc(sizeof(char) * size + 1);
-	return (str);
+	cur = *alst;
+	if (cur)
+	{
+		while (cur->next)
+			cur = cur->next;
+		cur->next = new;
+	}
+	else
+		*alst = new;
 }

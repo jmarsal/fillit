@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:21:12 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/02 11:17:54 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/03 21:57:03 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void		print_ascii(unsigned char *chars, size_t new_size)
 	ft_putchar('\n');
 }
 
-void			print_memory(const void *addr, size_t size)
+void			ft_print_memory(const void *addr, size_t size)
 {
 	unsigned char	*chars;
 	size_t			padding;
