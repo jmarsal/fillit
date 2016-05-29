@@ -3,17 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
+#    By: jmarsal  <jmarsal @student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/02 15:19:59 by jmarsal           #+#    #+#              #
-#    Updated: 2016/05/25 16:30:51 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/05/30 00:43:28 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-OPTI_FLAGS = -O2
-CFLAGS = $(OPTI_FLAGS) -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 INC_PATH = -I./includes/
 SRC = ft_putchar.c ft_putstr.c ft_strlen.c ft_putnbr.c ft_atoi.c ft_strncmp.c \
 	ft_strcmp.c ft_strstr.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strcpy.c \
@@ -36,22 +35,22 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\n-----------------------------------------------------------------"
-	@echo "|\033[32;1m\t$(NAME) has been created with $(OPTI_FLAGS) optimisation\t\t\033[0m|"
-	@echo "-----------------------------------------------------------------\n"
+	@echo "\n-------------------------------------------------"
+	@echo "|\033[32;1m\t$(NAME) has been created\t\t\033[0m|"
+	@echo "-------------------------------------------------\n"
 
 $(OBJ_PATH)/%.o: %.c
 	@mkdir -p $(OBJ_PATH)
 	@$(CC) -o $@ -c $< $(CFLAGS) $(INC_PATH)
 
 clean:
-	rm -rf $(OBJ_PATH)
+	@rm -rf $(OBJ_PATH)
 	@echo "\n-------------------------------------------------"
 	@echo "|\t\033[31mall $(NAME) files.o are deleted\033[0m\t\t|"
 	@echo "-------------------------------------------------\n"
 
 fclean: clean
-	rm -fv $(NAME)
+	@rm -fv @$(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"

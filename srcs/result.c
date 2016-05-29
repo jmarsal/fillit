@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-t_result		*ft_new_result(t_block *map, int max_width)
+t_result		*new_result(t_block *map, int max_width)
 {
 	t_result	*result;
 
@@ -30,7 +30,7 @@ t_result		*ft_new_result(t_block *map, int max_width)
 	return (result);
 }
 
-t_tetrimino		*ft_cpy_tetrimino_list(t_tetrimino *tetriminos)
+t_tetrimino		*cpy_tetrimino_list(t_tetrimino *tetriminos)
 {
 	t_tetrimino *cursor;
 	t_tetrimino *ret;
@@ -40,15 +40,15 @@ t_tetrimino		*ft_cpy_tetrimino_list(t_tetrimino *tetriminos)
 	ret = NULL;
 	while (cursor)
 	{
-		tmp = ft_create_tetrimino(NULL);
-		tmp->blocks_list = ft_cpy_block_list(cursor->blocks_list);
-		ft_push_tetrimino(&ret, tmp);
+		tmp = create_tetrimino(NULL);
+		tmp->blocks_list = cpy_block_list(cursor->blocks_list);
+		push_tetrimino(&ret, tmp);
 		cursor = cursor->next;
 	}
 	return (ret);
 }
 
-t_block			*ft_cpy_block_list(t_block *blocks_list)
+t_block			*cpy_block_list(t_block *blocks_list)
 {
 	t_block *cursor;
 	t_block *ret;
@@ -67,13 +67,13 @@ t_block			*ft_cpy_block_list(t_block *blocks_list)
 		tmp->y = cursor->y;
 		tmp->letter = cursor->letter;
 		tmp->next = NULL;
-		ft_push_block(&ret, tmp);
+		push_block(&ret, tmp);
 		cursor = cursor->next;
 	}
 	return (ret);
 }
 
-t_tetrimino		*ft_del_tetrimino(t_tetrimino *tetriminos, char letter)
+t_tetrimino		*del_tetrimino(t_tetrimino *tetriminos, char letter)
 {
 	t_tetrimino	*cursor;
 	t_tetrimino	*prev;

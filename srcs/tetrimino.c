@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   tetrimino.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmarsal  <jmarsal @student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 22:31:18 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/01 01:10:20 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/30 00:15:07 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetrimino		*ft_create_tetrimino(t_block *blocks_list)
+t_tetrimino		*create_tetrimino(t_block *blocks_list)
 {
 	t_tetrimino *tetrimino;
 
@@ -24,7 +24,7 @@ t_tetrimino		*ft_create_tetrimino(t_block *blocks_list)
 	return (tetrimino);
 }
 
-void			ft_push_tetrimino(t_tetrimino **tetri_list,
+void			push_tetrimino(t_tetrimino **tetri_list,
 									t_tetrimino *tetrimino)
 {
 	t_tetrimino	*cursor;
@@ -40,7 +40,7 @@ void			ft_push_tetrimino(t_tetrimino **tetri_list,
 		*tetri_list = tetrimino;
 }
 
-void			ft_push_block_to_tetrimino(t_pos *pos)
+void			push_block_to_tetrimino(t_pos *pos)
 {
 	t_block	*cursor;
 
@@ -56,17 +56,17 @@ void			ft_push_block_to_tetrimino(t_pos *pos)
 	pos->tetrimino->nb_blocks++;
 }
 
-int				ft_block_valid_push_tr(t_app *app, t_pos *pos)
+int				block_valid_push_tr(t_app *app, t_pos *pos)
 {
 	if (pos->i % 21 == MAP_SIZE || app->buf[pos->i + 1] == '\0')
 	{
 		if (pos->tetrimino->nb_blocks == 4)
 		{
-			ft_get_absolute_coords(pos->tetrimino->blocks_list);
+			get_absolute_coords(pos->tetrimino->blocks_list);
 			if (test_tetrimino_to_patterns(pos, app->patterns)
 											== -1)
 				return (-1);
-			ft_push_tetrimino(&app->tetri_list, pos->tetrimino);
+			push_tetrimino(&app->tetri_list, pos->tetrimino);
 			app->count_tr++;
 		}
 		else

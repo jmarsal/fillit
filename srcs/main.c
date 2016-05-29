@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmarsal  <jmarsal @student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:52:03 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/01 00:50:23 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/30 00:10:55 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	print_map(t_block **map, int max_width)
 	ft_putchar('\n');
 }
 
-int		ft_read_file(char **av, t_app *app)
+int		read_file(char **av, t_app *app)
 {
 	int fd;
 
@@ -49,7 +49,7 @@ int		ft_read_file(char **av, t_app *app)
 	return (0);
 }
 
-int		ft_fillit(t_app *app)
+int		fillit(t_app *app)
 {
 	t_pos pos;
 
@@ -58,9 +58,9 @@ int		ft_fillit(t_app *app)
 	pos.y = 0;
 	app->patterns.tetri_patterns = (char**)malloc(sizeof(char*) * PATTERNS_NB);
 	initialise_patterns(&app->patterns);
-	if (ft_can_build_list(app, &pos) == 0)
+	if (can_build_list(app, &pos) == 0)
 	{
-		ft_resolve(app);
+		resolve(app);
 		if (app->results)
 			print_map(&app->results->map, app->results->max_width);
 		return (0);
@@ -80,7 +80,7 @@ int		main(int ac, char **av)
 	app.max_width = 0;
 	if (ac == 2)
 	{
-		if (ft_read_file(av, &app) == -1 || ft_fillit(&app) == -1)
+		if (read_file(av, &app) == -1 || fillit(&app) == -1)
 		{
 			ft_putstr("error\n");
 			return (-1);

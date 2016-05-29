@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
+#    By: jmarsal  <jmarsal @student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/05/25 16:31:58 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/05/30 00:44:01 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 INC_DIR = includes/
 SRC_DIR = srcs/
 SRC_FILES = main.c error.c block.c tetrimino.c resolve.c result.c \
-		resolve_tools2.c map.c resolve_tools.c coords.c patterns.c
+		resolve_tools2.c resolve_tools.c patterns.c
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
 OBJ_PATH = ./obj
 CC = gcc
@@ -43,7 +43,7 @@ clean:
 
 fclean: clean
 	@make fclean -C libft
-	@rm -fv $(NAME)
+	@rm -fv @$(NAME)
 	@echo "\n-----------------------------------------"
 	@echo "|\t\033[31m$(NAME) is deleted\033[0m\t\t|"
 	@echo "-----------------------------------------\n"
