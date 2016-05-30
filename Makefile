@@ -6,7 +6,7 @@
 #    By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/17 00:34:02 by jmarsal           #+#    #+#              #
-#    Updated: 2016/05/30 14:39:23 by jmarsal          ###   ########.fr        #
+#    Updated: 2016/05/30 14:40:53 by jmarsal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_FILES = main.c error.c block.c tetrimino.c resolve.c result.c \
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
 OBJ_PATH = ./obj
 CC = gcc
-CFLAGS = -g -O0 -fsanitize=address -pedantic -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 ILIBFT = -Ilibft/includes
 LIBFT = -Llibft $(ILIBFT) -lft
 
