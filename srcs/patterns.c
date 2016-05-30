@@ -6,7 +6,7 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/30 22:35:07 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/02 13:21:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/30 13:14:17 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,11 @@ int			test_tetrimino_to_patterns(t_pos *pos, t_patterns patterns)
 {
 	t_block		*cur_blocks;
 	int			i;
-	int			j;
 
 	i = 0;
 	while (i < PATTERNS_NB)
 	{
 		cur_blocks = pos->tetrimino->blocks_list;
-		j = 0;
 		if (check_if_valid_tetrimino(patterns.tetri_patterns[i], cur_blocks)
 				== 0)
 			return (i);

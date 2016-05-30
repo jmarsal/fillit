@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/10 09:42:51 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/30 14:21:54 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/05/30 14:24:04 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/05/30 14:34:10 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-/*
-**	Alloue (avec malloc(3)) et retourne une chaine de caractères “fraiche”
-**	terminée par un ’\0’ représentant l’entier n passé en paramètre. Les
-**	nombres négatifs doivent être gérés. Si l’al- location échoue, la
-**	fonction renvoie NULL.
-*/
-
-char	*ft_itoa(int n)
+int	main()
 {
-	return (ft_itoa_base(n, 10));
+	printf("%s\n", ft_itoa(-42));
+	printf("%s\n", ft_itoa(42));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(2147483647));
+	printf("%s\n", ft_itoa(-2147483648));
+	return (0);
 }

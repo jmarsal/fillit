@@ -6,12 +6,11 @@
 /*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:21:41 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/02 10:28:00 by jmarsal          ###   ########.fr       */
+/*   Updated: 2016/05/30 14:30:00 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static char	*ft_check_error(int base)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   block.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarsal  <jmarsal @student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmarsal <jmarsal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/17 23:32:55 by jmarsal           #+#    #+#             */
-/*   Updated: 2016/05/30 00:34:34 by jmarsal          ###   ########.fr       */
+/*   Created: 2016/05/30 10:48:47 by jmarsal           #+#    #+#             */
+/*   Updated: 2016/05/30 10:50:01 by jmarsal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ t_block		*create_map(int max_width)
 	return (map);
 }
 
-void	get_absolute_coords(t_block *cursor)
+void		get_absolute_coords(t_block *cursor)
 {
 	t_block	*tmp;
 	int		x_min;
