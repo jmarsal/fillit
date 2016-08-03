@@ -18,7 +18,7 @@ SRC_FILES = main.c error.c block.c tetrimino.c resolve.c result.c \
 		resolve_tools2.c resolve_tools.c patterns.c
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_PATH)/%.o)
 OBJ_PATH = ./obj
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Werror -Wextra
 ILIBFT = -Ilibft/includes
 LIBFT = -Llibft $(ILIBFT) -lft
